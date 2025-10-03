@@ -10,5 +10,52 @@
   p {
     font-weight: 300;
   }
+  .gg {
+    /* @apply bg-gradient-to-br from-yellow-900/70 to-orange-900/70 from-slate-50 via-purple-50 to-slate-50; */
+    /* -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent; */
+    /* background: linear-gradient(45deg, rgba(234, 179, 8, 0.7), rgba(249, 115, 22, 0.7)); */
+  }
+
+  .body-bg {
+    background: linear-gradient(120deg, #020618, #3c0366 , #020618);   
+  }
+  .body-bg-light {
+    background: linear-gradient(to right, #f8fafc, #faf5ff , #f8fafc);
+  }
+
+  .gradient-text {
+    color: #c27aff;
+          background: linear-gradient(to right,  #c27aff,  #fb64b6, #c27aff);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        .gradient-text span {
+          -webkit-text-fill-color: lightsalmon;
+
+        }
+
+        .gradient-text-light {
+          color: transparent;
+          background: linear-gradient(to right, #9810fa, #e60076, #9810fa);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        .gradient-text-light span {
+          -webkit-text-fill-color: lightsalmon;
+
+        }
+
+        .gradient-bg {
+          background: linear-gradient(to right, #9810fa, #e60076);
+        }
+
+        .gradient-bg-light {
+          background: linear-gradient(to right, #ad46ff, #f6339a );
+        }
  
 }

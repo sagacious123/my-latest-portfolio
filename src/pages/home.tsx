@@ -23,6 +23,7 @@ import {
   LucideWaves,
   Box,
   ChevronDown,
+  Laptop,
 } from "lucide-react";
 import {
   SiTypescript,
@@ -323,9 +324,7 @@ export const Home = () => {
     setNextSparkleId((prev) => prev + 1);
   };
 
-  const bgColor = isDark
-    ? "from-slate-950 via-purple-950 to-slate-950"
-    : "from-slate-50 via-purple-50 to-slate-50";
+  const bgColor = isDark ? "body-bg" : "body-bg-light";
   const textColor = isDark ? "text-white" : "text-gray-900";
   const cardBg = isDark ? "bg-slate-900/50" : "bg-white/50";
   const whiteBg = isDark ? "bg-slate-950/80" : "bg-white/80";
@@ -334,15 +333,21 @@ export const Home = () => {
   // ${
   //           isDark ? "bg-slate-950/80" : "bg-white/80"
   //         }
+
+  // ${
+  //             isDark
+  //               ? "from-purple-400 to-pink-400"
+  //               : "from-purple-600 to-pink-600"
+  //           }
   return (
     <div
-      className={`min-h-screen bg-gradient-to-br ${bgColor} ${textColor} overflow-hidden transition-colors duration-500`}
+      className={`min-h-screen ${bgColor} ${textColor} overflow-hidden transition-colors duration-500`}
     >
       {/* Custom Cursor Effect */}
       <div
         className={`fixed w-8 h-8 border-2 ${
           isDark ? "border-purple-500" : "border-purple-600"
-        } rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-150`}
+        } rounded-full pointer-events-none z-40 mix-blend-difference transition-transform duration-150`}
         style={{
           left: `${mousePosition.x - 16}px`,
           top: `${mousePosition.y - 16}px`,
@@ -370,25 +375,20 @@ export const Home = () => {
 
       {/* Navigation */}
       <nav
-        className={`fixed max-w-7xl w-[95%] mx-auto top-5 left-1/2 -translate-x-1/2 z-50 rounded-full bg-transparent  backdrop-blur-lg z-40 border ${borderColor}`}
+        className={`fixed max-w-7xl w-[95%] mx-auto top-5 left-1/2 -translate-x-1/2 z-40 rounded-full bg-transparent  backdrop-blur-lg border ${borderColor}`}
       >
         <div className="max-w-7xl mx-auto md:px-6 md:py-4 px-5 py-3 flex justify-between items-center">
           <div
-            className={`text-2xl font-bold bg-gradient-to-r ${
-              isDark
-                ? "from-purple-400 to-pink-400"
-                : "from-purple-600 to-pink-600"
-            } bg-clip-text text-transparent`}
-            style={{
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
+            className={`text-2xl font-bold  flex items-center gap-2 cursor-pointer hover:scale-110 transition-transform ${
+              isDark ? "text-purple-200" : "text-purple-900"
+            }`}
           >
+            <Laptop className="w-6 h-6" />
             JB
           </div>
           {/* Desktop Nav */}
           <div
-            className={`flex md:flex-row flex-col md:bg-transparent md:static absolute top-1/2 z-[-1] left-0 right-0 gap-8 items-center md:border-0 md:py-0 py-5 rounded-b-4xl md:rounded-[unset] border border-t-0 ${borderColor} backdrop-blur-md md:opacity-100 opacity-0 ${
+            className={`flex md:flex-row flex-col md:bg-transparent md:static absolute top-1/2 left-0 right-0 gap-8 items-center md:border-0 md:py-0 py-5 rounded-b-4xl md:rounded-[unset] border border-t-0 ${borderColor} backdrop-blur-md md:opacity-100 opacity-0 ${
               isMenuOpen ? "opacity-100" : "opacity-0"
             }`}
           >
@@ -404,8 +404,11 @@ export const Home = () => {
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className={`hover:${accentColor} transition-colors relative group font-medium`}
-                onClick={() => createSparkle(mousePosition.x, mousePosition.y)}
+                className={`hover:${accentColor} transition-colors relative group font-light`}
+                onClick={() => {
+                  createSparkle(mousePosition.x, mousePosition.y);
+                  setIsMenuOpen(false);
+                }}
               >
                 {item}
                 <span
@@ -550,7 +553,7 @@ export const Home = () => {
             />
           </div> */}
 
-          <div className="text-2xl md:text-4xl mb-8 flex items-center justify-center gap-4 flex-wrap">
+          <div className="text-2xl md:text-4xl mb-8 flex items-center justify-center gap-4 flex-wrap gg">
             <Code2
               className={`w-8 h-8 ${
                 isDark ? "text-purple-400" : "text-purple-600"
@@ -564,11 +567,9 @@ export const Home = () => {
             /> */}
           </div>
           <h1
-            className={`text-4xl md:text-6xl leading-tight font-bold mb-6 animate-fade-in max-w-2xl hover:scale-110 transition-transform cursor-pointer bg-gradient-to-r ${
-              isDark
-                ? "from-purple-400 via-pink-400 to-purple-400"
-                : "from-purple-600 via-pink-600 to-purple-600"
-            } bg-clip-text text-transparent`}
+            className={`text-4xl md:text-6xl leading-tight font-bold mb-6 animate-fade-in max-w-2xl hover:scale-110 transition-transform text-purple-400 cursor-pointer ${
+              isDark ? "gradient-text" : "gradient-text-light"
+            }`}
           >
             Your App’s{" "}
             <span className="relative inline-block text-[lightsalmon] ">
@@ -619,10 +620,8 @@ export const Home = () => {
           <div className="flex gap-6 justify-center flex-wrap">
             <a
               href="mailto:damilolaj23@gmail.com"
-              className={`group flex items-center gap-2 bg-gradient-to-r ${
-                isDark
-                  ? "from-purple-600 to-pink-600"
-                  : "from-purple-500 to-pink-500"
+              className={`group flex items-center gap-2 ${
+                isDark ? "gradient-bg" : "gradient-bg-light"
               } text-white px-8 sm:py-4 py-3 rounded-full hover:scale-105 transition-transform`}
             >
               <Mail className="w-5 h-5" />
@@ -1292,11 +1291,9 @@ export const Home = () => {
                 "Resume download functionality would be implemented with an actual PDF file URL"
               );
             }}
-            className={`inline-flex items-center gap-3 bg-gradient-to-r ${
-              isDark
-                ? "from-purple-600 to-pink-600"
-                : "from-purple-500 to-pink-500"
-            } text-white px-10 py-5 rounded-full hover:scale-110 transition-all shadow-2xl group font-medium text-lg`}
+            className={`inline-flex items-center gap-3 ${
+                isDark ? "gradient-bg" : "gradient-bg-light"
+              } text-white px-10 py-5 rounded-full hover:scale-110 transition-all shadow-2xl group font-medium text-lg`}
           >
             <Download className="w-6 h-6 group-hover:animate-bounce" />
             <span>Download Resume</span>
