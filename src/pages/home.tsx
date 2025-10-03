@@ -328,10 +328,12 @@ export const Home = () => {
     : "from-slate-50 via-purple-50 to-slate-50";
   const textColor = isDark ? "text-white" : "text-gray-900";
   const cardBg = isDark ? "bg-slate-900/50" : "bg-white/50";
-  const whiteBg = isDark ? "bg-slate-900" : "bg-white";
+  const whiteBg = isDark ? "bg-slate-950/80" : "bg-white/80";
   const borderColor = isDark ? "border-purple-500/30" : "border-purple-300/50";
   const accentColor = isDark ? "text-purple-400" : "text-purple-600";
-
+  // ${
+  //           isDark ? "bg-slate-950/80" : "bg-white/80"
+  //         }
   return (
     <div
       className={`min-h-screen bg-gradient-to-br ${bgColor} ${textColor} overflow-hidden transition-colors duration-500`}
@@ -368,21 +370,89 @@ export const Home = () => {
 
       {/* Navigation */}
       <nav
-        className={`fixed max-w-7xl w-[95%] mx-auto top-5 left-1/2 -translate-x-1/2 z-50 rounded-full ${
-          isDark ? "bg-slate-950/80" : "bg-white/80"
-        } backdrop-blur-lg z-40 border ${borderColor}`}
+        className={`fixed max-w-7xl w-[95%] mx-auto top-5 left-1/2 -translate-x-1/2 z-50 rounded-full bg-transparent  backdrop-blur-lg z-40 border ${borderColor}`}
       >
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto md:px-6 md:py-4 px-5 py-3 flex justify-between items-center">
           <div
             className={`text-2xl font-bold bg-gradient-to-r ${
               isDark
                 ? "from-purple-400 to-pink-400"
                 : "from-purple-600 to-pink-600"
             } bg-clip-text text-transparent`}
+            style={{
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
           >
             JB
           </div>
+          {/* Desktop Nav */}
           <div
+            className={`flex md:flex-row flex-col md:bg-transparent md:static absolute top-1/2 z-[-1] left-0 right-0 gap-8 items-center md:border-0 md:py-0 py-5 rounded-b-4xl md:rounded-[unset] border border-t-0 ${borderColor} backdrop-blur-md md:opacity-100 opacity-0 ${
+              isMenuOpen ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            {[
+              "Home",
+              "About",
+              "Skills",
+              "Projects",
+              "Experience",
+              //   "Testimonials",
+              "Contact",
+            ].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className={`hover:${accentColor} transition-colors relative group font-medium`}
+                onClick={() => createSparkle(mousePosition.x, mousePosition.y)}
+              >
+                {item}
+                <span
+                  className={`absolute -bottom-1 left-0 w-0 h-0.5 ${
+                    isDark ? "bg-purple-400" : "bg-purple-600"
+                  } group-hover:w-full transition-all duration-300`}
+                />
+              </a>
+            ))}
+            {/* <button
+              onClick={() => {
+                setIsDark(!isDark);
+                createSparkle(mousePosition.x, mousePosition.y);
+              }}
+              className={`p-2 rounded-full ${cardBg} border ${borderColor} hover:scale-110 transition-transform`}
+            >
+              {isDark ? (
+                <Sun className="w-5 h-5 text-yellow-400" />
+              ) : (
+                <Moon className="w-5 h-5 text-purple-600" />
+              )}
+            </button> */}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className=" flex items-center gap-4">
+            <button
+              onClick={() => {
+                setIsDark(!isDark);
+                createSparkle(mousePosition.x, mousePosition.y);
+              }}
+              className={`p-2 rounded-full ${cardBg} border ${borderColor}`}
+            >
+              {isDark ? (
+                <Sun className="w-5 h-5 text-yellow-400" />
+              ) : (
+                <Moon className="w-5 h-5 text-purple-600" />
+              )}
+            </button>
+            <button
+              className="md:hidden"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X /> : <Menu />}
+            </button>
+          </div>
+          {/* <div
             className={`flex md:flex-row flex-col md:bg-transparent md:static absolute top-1/2 z-[-1] left-0 right-0 gap-8 items-center md:border-0 md:py-0 py-5 rounded-b-4xl md:rounded-[unset] border border-t-0 ${borderColor} ${whiteBg} md:opacity-100 opacity-0 ${
               isMenuOpen ? "opacity-100" : "opacity-0"
             }`}
@@ -421,14 +491,40 @@ export const Home = () => {
                 <Moon className="w-5 h-5 text-purple-600" />
               )}
             </button>
-          </div>
-          <button
+          </div> */}
+          {/* <button
             className="md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X /> : <Menu />}
-          </button>
+          </button> */}
         </div>
+        {/* Mobile Menu */}
+        {/* {isMenuOpen && (
+          <div className={`md:hidden fixed ${cardBg} border-t ${borderColor} py-4`}>
+            {[
+              "Home",
+              "About",
+              "Skills",
+              "Projects",
+              "Experience",
+              "Testimonials",
+              "Contact",
+            ].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className={`block px-6 py-3 hover:${accentColor} transition-colors`}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  createSparkle(mousePosition.x, mousePosition.y);
+                }}
+              >
+                {item}
+              </a>
+            ))}
+          </div>
+        )} */}
       </nav>
 
       {/* Hero Section */}
@@ -757,7 +853,7 @@ export const Home = () => {
                 isDark ? "text-slate-400" : "text-slate-600"
               } text-lg`}
             >
-              Click around and explore! 🎨
+              Click around and explore!
             </p>
           </div>
 
