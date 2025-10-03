@@ -554,12 +554,12 @@ export const Home = () => {
       <section id="about" className="py-20 px-6 relative">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-medium mb-4 flex items-center justify-center gap-4">
-              <User
+            <h2 className="text-3xl md:text-5xl font-medium mb-4 flex items-center justify-center gap-4">
+              {/* <User
                 className={`w-12 h-12 ${
                   isDark ? "text-purple-400" : "text-purple-600"
                 }`}
-              />
+              /> */}
               About Me
             </h2>
           </div>
@@ -628,12 +628,12 @@ export const Home = () => {
       <section className="bg-[#0b1120] text-white py-24 px-6">
         <div className="max-w-5xl mx-auto">
           {/* Heading */}
-          <h2 className="text-5xl font-medium mb-16 flex items-center justify-center gap-4">
-            <Box
+          <h2 className="text-3xl md:text-5xl font-medium mb-16 flex items-center justify-center gap-4">
+            {/* <Box
               className={`w-12 h-12 ${
                 isDark ? "text-purple-400" : "text-purple-600"
               }`}
-            />
+            /> */}
             My Services
           </h2>
           {/* <h2 className="text-3xl font-semibold mb-12 bg-gradient-to-r from-pink-500 to-blue-500 text-transparent bg-clip-text">
@@ -662,12 +662,12 @@ export const Home = () => {
       <section id="skills" className="min-h-screen py-20 px-6 relative">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-medium mb-4 flex items-center justify-center gap-4">
-              <Zap
+            <h2 className="text-3xl md:text-5xl font-medium mb-4 flex items-center justify-center gap-4">
+              {/* <Zap
                 className={`w-12 h-12 ${
                   isDark ? "text-yellow-400" : "text-yellow-600"
                 }`}
-              />
+              /> */}
               Tech Universe
             </h2>
             <p
@@ -675,7 +675,7 @@ export const Home = () => {
                 isDark ? "text-gray-400" : "text-gray-600"
               } text-lg`}
             >
-              Hover to see the magic ✨
+              Hover to see the magic
             </p>
           </div>
 
@@ -744,12 +744,12 @@ export const Home = () => {
       <section id="projects" className="py-20 px-6 relative">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-medium mb-4 flex items-center justify-center gap-4">
-              <Rocket
+            <h2 className="text-3xl md:text-5xl md:text-6xl font-medium mb-4 flex items-center justify-center gap-4">
+              {/* <Rocket
                 className={`w-12 h-12 ${
                   isDark ? "text-blue-400" : "text-blue-600"
                 }`}
-              />
+              /> */}
               Cool Stuff I've Built
             </h2>
             <p
@@ -849,12 +849,12 @@ export const Home = () => {
       <section id="experience" className="py-20 px-6 relative">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-medium mb-4 flex items-center justify-center gap-4">
-              <Briefcase
+            <h2 className="text-3xl md:text-5xl md:text-6xl font-medium mb-4 flex items-center justify-center gap-4">
+              {/* <Briefcase
                 className={`w-12 h-12 ${
                   isDark ? "text-green-400" : "text-green-600"
                 }`}
-              />
+              /> */}
               My Journey
             </h2>
             <p
@@ -1106,12 +1106,12 @@ export const Home = () => {
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-medium mb-4 flex items-center justify-center gap-4">
-              <Award
+            <h2 className="text-3xl md:text-5xl font-medium mb-4 flex items-center justify-center gap-4">
+              {/* <Award
                 className={`w-12 h-12 ${
                   isDark ? "text-yellow-400" : "text-yellow-600"
                 }`}
-              />
+              /> */}
               Achievement Unlocked
             </h2>
           </div>
@@ -1147,7 +1147,7 @@ export const Home = () => {
       {/* Contact Section */}
       <section id="contact" className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl font-medium mb-8">
+          <h2 className="text-3xl md:text-5xl font-medium mb-8">
             Let's Build Something Amazing
           </h2>
           <p
