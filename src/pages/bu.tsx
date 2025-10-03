@@ -386,7 +386,7 @@ export const Home = () => {
       <nav
         className={`fixed max-w-7xl w-[95%] mx-auto top-5 left-1/2 -translate-x-1/2 z-40 rounded-full bg-transparent  backdrop-blur-lg border ${borderColor}`}
       >
-        <div className="max-w-7xl mx-auto md:px-4 md:py-3 px-4 py-2 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto md:px-6 md:py-4 px-5 py-3 flex justify-between items-center">
           <div
             className={`text-2xl font-bold  flex items-center gap-2 cursor-pointer hover:scale-110 transition-transform ${
               isDark ? "text-purple-200" : "text-purple-900"
@@ -413,7 +413,7 @@ export const Home = () => {
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className={`hover:${accentColor} transition-colors relative group text-sm font-normal`}
+                className={`hover:${accentColor} transition-colors relative group font-normal`}
                 onClick={() => {
                   createSparkle(mousePosition.x, mousePosition.y);
                   setIsMenuOpen(false);
@@ -540,120 +540,166 @@ export const Home = () => {
       </nav>
 
       {/* Hero Section */}
-      <section
-        id="home"
-        className="min-h-[100dvh] flex items-center justify-center relative pt-20"
-      >
-        {/* <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            transform: `translateY(${parallaxOffset}px)`,
-            background: `radial-gradient(circle at 50% 50%, ${
-              isDark ? "rgba(168, 85, 247, 0.4)" : "rgba(168, 85, 247, 0.2)"
-            } 0%, transparent 50%)`,
-          }}
-        /> */}
+      <section id="home" className="min-h-screen   relative pt-20">
+        <div className="max-w-7xl w-full mx-auto flex items-center">
+          <div
+            className="absolute inset-0 opacity-20"
+            style={{
+              transform: `translateY(${parallaxOffset}px)`,
+              background: `radial-gradient(circle at 50% 50%, ${
+                isDark ? "rgba(168, 85, 247, 0.4)" : "rgba(168, 85, 247, 0.2)"
+              } 0%, transparent 50%)`,
+            }}
+          />
 
-        <div className="relative z-10 text-center px-6 max-w-5xl">
-          {/* <div className="mb-8 inline-block">
-            <Sparkles
-              className="w-12 h-12 text-yellow-400 animate-spin"
-              style={{ animationDuration: "3s" }}
-            />
-          </div> */}
+          <div className="relative z-10 text-start px-6 max-w-5xl">
+            {/* <div className="mb-8 inline-block">
+                  <Sparkles
+                    className="w-12 h-12 text-yellow-400 animate-spin"
+                    style={{ animationDuration: "3s" }}
+                  />
+                </div> */}
 
-          <h1
-            className={`text-4xl md:text-6xl leading-tight font-bold mb-6 animate-fade-in max-w-2xl hover:scale-110 transition-transform text-purple-400 cursor-pointer ${
-              isDark ? "gradient-text" : "gradient-text-light"
-            }`}
-          >
-            Welcome to My{" "}
-            <span className="relative inline-block text-[lightsalmon] ">
-              Personal Archive
-              <span
-                className={`absolute -bottom-2 left-0 w-full h-4 bg-no-repeat bg-bottom bg-contain`}
+            <div className="text-2xl md:text-4xl mb-8 flex items-center gap-4 flex-wrap gg">
+              <Code2
+                className={`w-8 h-8 ${
+                  isDark ? "text-purple-400" : "text-purple-600"
+                }`}
+              />
+              <span className="font-light">Frontend Developer</span>
+              {/* <Rocket
+                    className={`w-8 h-8 ${
+                      isDark ? "text-pink-400" : "text-pink-600"
+                    }`}
+                  /> */}
+            </div>
+            <h1
+              className={`text-4xl md:text-6xl leading-tight font-bold mb-6 animate-fade-in max-w-2xl transition-transform text-purple-400 cursor-pointer ${
+                isDark ? "gradient-text" : "gradient-text-light"
+              }`}
+            >
+              Welcome to My World, Where{" "}
+              <span className="relative inline-block text-[lightsalmon] ">
+                Magic
+                <span
+                  className={`absolute -bottom-2 left-0 w-full h-4 bg-no-repeat bg-bottom bg-contain`}
+                  style={{
+                    backgroundImage: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M2 10 Q 50 20 98 10' stroke='${
+                      isDark ? "%23FBBF24" : "%23F59E0B"
+                    }' stroke-width='4' fill='none' stroke-linecap='round'/%3e%3c/svg%3e")`,
+                  }}
+                />
+              </span>{" "}
+              Happens
+              {/* <span className="inline-block hover:scale-110 transition-transform cursor-pointer">
+                    Joseph
+                  </span>{" "}
+                  <span
+                    className={`inline-block hover:scale-110 transition-transform cursor-pointer bg-gradient-to-r ${
+                      isDark
+                        ? "from-purple-400 via-pink-400 to-purple-400"
+                        : "from-purple-600 via-pink-600 to-purple-600"
+                    } bg-clip-text text-transparent`}
+                  >
+                    Bajegbo
+                  </span> */}
+            </h1>
+
+            <p
+              className={`sm:text-xl text-base ${
+                isDark ? "text-gray-300" : "text-gray-700"
+              } mb-12 max-w-2xl mx-auto leading-relaxed`}
+            >
+              I’m Joseph, and I believe the web should feel alive. I turn ideas
+              into smooth, interactive, and delightful web apps that users love
+              to click.
+              {/* Crafting beautiful, interactive web experiences for{" "}
+                  <span
+                    className={`${
+                      isDark ? "text-purple-400" : "text-purple-600"
+                    } font-semibold`}
+                  >
+                    5+ years
+                  </span>
+                  . Specializing in React, TypeScript, and performance optimization. */}
+            </p>
+
+            <div className="flex gap-6 items-center flex-wrap">
+              <a
+                href="mailto:damilolaj23@gmail.com"
+                className={`group flex items-center gap-2 ${
+                  isDark ? "gradient-bg" : "gradient-bg-light"
+                } text-white px-8 sm:py-4 py-3 rounded-full hover:scale-105 transition-transform`}
+              >
+                <Mail className="w-5 h-5" />
+                <span className="font-medium">Get in Touch</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+              </a>
+              <a
+                href="https://linkedin.com/in/bajegbo-joseph"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex items-center gap-2 border-2 ${
+                  isDark
+                    ? "border-purple-500 hover:bg-purple-500/20"
+                    : "border-purple-600 hover:bg-purple-600/10"
+                } px-8 sm:py-4 py-3 rounded-full transition-all`}
+              >
+                <Linkedin className="w-5 h-5" />
+                <span className="font-medium">LinkedIn</span>
+              </a>
+            </div>
+          </div>
+          {/* Right Side - Profile Image */}
+          <div className="relative flex justify-center md:justify-end">
+            <div className="relative">
+              {/* Animated background blob */}
+              <div
+                className={`absolute inset-0 ${
+                  isDark ? "bg-purple-600" : "bg-purple-500"
+                } rounded-full blur-3xl opacity-20`}
+                style={{ animation: "blob 8s infinite" }}
+              />
+
+              {/* Code overlay effect */}
+              <div
+                className={`absolute inset-0 ${
+                  isDark ? "bg-slate-950/40" : "bg-white/40"
+                } rounded-3xl overflow-hidden opacity-30`}
+              >
+                <div
+                  className={`${
+                    isDark ? "text-purple-400/40" : "text-purple-600/40"
+                  } text-xs font-mono p-8 space-y-2`}
+                >
+                  <div>const developer = &#123;</div>
+                  <div className="pl-4">name: "Joseph",</div>
+                  <div className="pl-4">skills: ["React", "TypeScript"],</div>
+                  <div className="pl-4">passion: "Frontend" </div>
+                  <div>&#125;;</div>
+                </div>
+              </div>
+
+              {/* Main Image */}
+              <img
+                src={MyPic}
+                alt="Joseph Bajegbo"
+                className="relative w-80 h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[600px] object-cover object-top rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500 cursor-pointer"
+                onClick={(e) => createSparkle(e.clientX, e.clientY)}
                 style={{
-                  backgroundImage: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M2 10 Q 50 20 98 10' stroke='${
-                    isDark ? "%23FBBF24" : "%23F59E0B"
-                  }' stroke-width='4' fill='none' stroke-linecap='round'/%3e%3c/svg%3e")`,
+                  maskImage:
+                    "linear-gradient(to bottom, black 70%, transparent 100%)",
+                  WebkitMaskImage:
+                    "linear-gradient(to bottom, black 70%, transparent 100%)",
                 }}
               />
-            </span>{" "}
-            {/* <span className="inline-block hover:scale-110 transition-transform cursor-pointer">
-              Joseph
-            </span>{" "}
-            <span
-              className={`inline-block hover:scale-110 transition-transform cursor-pointer bg-gradient-to-r ${
-                isDark
-                  ? "from-purple-400 via-pink-400 to-purple-400"
-                  : "from-purple-600 via-pink-600 to-purple-600"
-              } bg-clip-text text-transparent`}
-            >
-              Bajegbo
-            </span> */}
-          </h1>
-          <div className="text-xl md:text-2xl mb-8 flex items-center justify-center gap-4 flex-wrap gg">
-            <Code2
-              className={`w-8 h-8 ${
-                isDark ? "text-purple-400" : "text-purple-600"
-              }`}
-            />
-            <span className="font-normal">Frontend Developer</span>
-            {/* <Rocket
-              className={`w-8 h-8 ${
-                isDark ? "text-pink-400" : "text-pink-600"
-              }`}
-            /> */}
-          </div>
-          <p
-            className={`sm:text-xl text-base ${
-              isDark ? "text-gray-300" : "text-gray-700"
-            } mb-12 max-w-2xl mx-auto leading-relaxed`}
-          >
-            I’m Joseph, and I believe the web should feel alive. I turn ideas
-            into smooth, interactive, and delightful web apps that users love to
-            click.
-            {/* Crafting beautiful, interactive web experiences for{" "}
-            <span
-              className={`${
-                isDark ? "text-purple-400" : "text-purple-600"
-              } font-semibold`}
-            >
-              5+ years
-            </span>
-            . Specializing in React, TypeScript, and performance optimization. */}
-          </p>
-
-          <div className="flex gap-6 justify-center flex-wrap">
-            <a
-              href="mailto:damilolaj23@gmail.com"
-              className={`group flex items-center gap-2 ${
-                isDark ? "gradient-bg" : "gradient-bg-light"
-              } text-white px-8 sm:py-4 py-3 rounded-full hover:scale-105 transition-transform`}
-            >
-              <Mail className="w-5 h-5" />
-              <span className="font-medium">Get in Touch</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-            </a>
-            <a
-              href="https://linkedin.com/in/bajegbo-joseph"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex items-center gap-2 border-2 ${
-                isDark
-                  ? "border-purple-500 hover:bg-purple-500/20"
-                  : "border-purple-600 hover:bg-purple-600/10"
-              } px-8 sm:py-4 py-3 rounded-full transition-all`}
-            >
-              <Linkedin className="w-5 h-5" />
-              <span className="font-medium">LinkedIn</span>
-            </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* About Me Section */}
-      <section id="about" className="pt-18 pb-20 px-6 relative">
+      <section id="about" className="py-20 px-6 relative">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-medium mb-4 flex items-center justify-center gap-4">
