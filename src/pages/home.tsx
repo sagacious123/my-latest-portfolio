@@ -671,23 +671,19 @@ export const Home = () => {
               isDark ? "hover:border-purple-500" : "hover:border-purple-400"
             } transition-all`}
           >
-            <div className="space-y-6 text-lg leading-relaxed">
+            <div className="space-y-6 text-lg leading-relaxed ">
               <p className={isDark ? "text-gray-300" : "text-gray-700"}>
                 Hey there! I'm Joseph, a passionate Frontend Developer with over
                 5 years of experience turning complex problems into elegant,
-                user-friendly solutions. I've had the privilege of working with
-                amazing teams at Techbeaver and 720Degree Innovation Hub, where
-                I've honed my skills in building high-performance web
-                applications that users love.
+                user-friendly solutions. I've had the privilege of working on
+                amazing products with amazing teams where I've honed my skills
+                in building high-performance web applications that users love.
               </p>
 
               <p className={isDark ? "text-gray-300" : "text-gray-700"}>
                 I have an eye for creating seamless UI/UX experiences. What
-                drives my work? The magic moment when a user interacts with
-                something I built and it just works smoothly, beautifully,
-                intuitively. I'm obsessed with performance optimization,
-                accessibility, and those delightful micro-interactions that make
-                interfaces feel alive.
+                drives my work? The moment when a user interacts with something
+                I built and it just works smoothly, beautifully, intuitively.
               </p>
 
               <div
