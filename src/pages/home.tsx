@@ -24,6 +24,8 @@ import {
   Box,
   ChevronDown,
   Laptop,
+  Download,
+  Github,
 } from "lucide-react";
 import {
   SiTypescript,
@@ -36,13 +38,14 @@ import {
   SiReact,
   SiIcloud,
 } from "@icons-pack/react-simple-icons";
-import BloombeautyScreenshot from "../assets/bloombeauty.png";
-import MyIturaScreenshot from "../assets/myitura.png";
-import SixthGearScreenshot from "../assets/sixth-gear.png";
-import TradelendaScreenshot from "../assets/tradelenda.png";
-import TradetrackaScreenshot from "../assets/tradetracka.png";
-import NtlScreenshot from "../assets/ntl.png";
-import { useTheme } from "../context/ThemeContext";
+import BloombeautyScreenshot from "assets/bloombeauty.png";
+import MyIturaScreenshot from "assets/myitura.png";
+import SixthGearScreenshot from "assets/sixth-gear.png";
+import TradelendaScreenshot from "assets/tradelenda.png";
+import TradetrackaScreenshot from "assets/tradetracka.png";
+import NtlScreenshot from "assets/ntl.png";
+import Resume from "assets/Joseph_Bajegbo Resume.pdf";
+import { useTheme } from "context/ThemeContext";
 
 export const Home = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -53,7 +56,7 @@ export const Home = () => {
   //   () => window.matchMedia("(prefers-color-scheme: dark)").matches
   // );
   const { isDark, toggleTheme } = useTheme();
-  const [activeProject, setActiveProject] = useState(0);
+  const [activeProject, setActiveProject] = useState<number | null>(null);
   const [skillOrbit, setSkillOrbit] = useState(0);
   const [sparkles, setSparkles] = useState<
     {
@@ -332,7 +335,8 @@ export const Home = () => {
   const textColor = isDark ? "text-white" : "text-gray-900";
   const cardBg = isDark ? "bg-slate-900/50" : "bg-white/50";
   const whiteBg = isDark ? "bg-slate-950/80" : "bg-white/80";
-  const borderColor = isDark ? "border-purple-900" : "border-purple-200";
+  const borderColor = isDark ? "border-purple-900" : "border-purple-100";
+  // const borderColor = isDark ? 'border-slate-700' : 'border-slate-200';
   const accentColor = isDark ? "text-purple-400" : "text-purple-600";
   // ${
   //           isDark ? "bg-slate-950/80" : "bg-white/80"
@@ -679,18 +683,9 @@ export const Home = () => {
               </p>
 
               <p className={isDark ? "text-gray-300" : "text-gray-700"}>
-                I specialize in{" "}
-                <span
-                  className={`font-semibold ${
-                    isDark ? "text-purple-400" : "text-purple-600"
-                  }`}
-                >
-                  React.js, Next.js, and TypeScript
-                </span>
-                , with a keen eye for creating seamless UI/UX experiences. What
+                I have an eye for creating seamless UI/UX experiences. What
                 drives my work? The magic moment when a user interacts with
-                something I built and it just{" "}
-                <span className="italic">works</span> – smoothly, beautifully,
+                something I built and it just works smoothly, beautifully,
                 intuitively. I'm obsessed with performance optimization,
                 accessibility, and those delightful micro-interactions that make
                 interfaces feel alive.
@@ -871,7 +866,7 @@ export const Home = () => {
                   setActiveProject(index);
                   createSparkle(e.clientX, e.clientY);
                 }}
-                className={`relative ${cardBg} backdrop-blur border-2 ${
+                className={`relative ${cardBg} backdrop-blur border-1 ${
                   activeProject === index
                     ? isDark
                       ? "border-purple-500"
@@ -1287,6 +1282,16 @@ export const Home = () => {
           </div>
 
           {/* Download Resume Button */}
+          <a
+            href={Resume}
+            download="Joseph Bajegbo Resume"
+            className={`inline-flex items-center gap-3 ${
+              isDark ? "gradient-bg" : "gradient-bg-light"
+            } text-white px-10 py-5 rounded-full hover:scale-105 transition-all shadow-2xl group font-medium text-lg`}
+          >
+            <Download className="w-6 h-6 group-hover:animate-bounce" />
+            Grab my Resume
+          </a>
           {/* <a
             href="#"
             onClick={(e) => {
@@ -1296,12 +1301,34 @@ export const Home = () => {
               );
             }}
             className={`inline-flex items-center gap-3 ${
-                isDark ? "gradient-bg" : "gradient-bg-light"
-              } text-white px-10 py-5 rounded-full hover:scale-110 transition-all shadow-2xl group font-medium text-lg`}
+              isDark ? "gradient-bg" : "gradient-bg-light"
+            } text-white px-10 py-5 rounded-full hover:scale-110 transition-all shadow-2xl group font-medium text-lg`}
           >
             <Download className="w-6 h-6 group-hover:animate-bounce" />
             <span>Download Resume</span>
           </a> */}
+
+          {/* Social Links */}
+          <div className="flex gap-6 justify-center mt-12">
+            <a
+              href="https://linkedin.com/in/bajegbo-joseph"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`w-14 h-14 rounded-full ${cardBg} border ${borderColor} flex items-center justify-center hover:scale-110 transition-transform`}
+              onClick={(e) => createSparkle(e.clientX, e.clientY)}
+            >
+              <Linkedin className={`w-6 h-6 ${accentColor}`} />
+            </a>
+            <a
+              href="https://github.com/sagacious123"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`w-14 h-14 rounded-full ${cardBg} border ${borderColor} flex items-center justify-center hover:scale-110 transition-transform`}
+              onClick={(e) => createSparkle(e.clientX, e.clientY)}
+            >
+              <Github className={`w-6 h-6 ${accentColor}`} />
+            </a>
+          </div>
         </div>
       </section>
 
