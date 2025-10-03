@@ -1,34 +1,28 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Github,
   Linkedin,
   Mail,
   Phone,
   Code2,
   Rocket,
-  Sparkles,
   Zap,
   Award,
   Briefcase,
   ArrowRight,
   Menu,
   X,
-  Download,
   Sun,
   Moon,
   User,
-  Star,
-  MessageSquare,
   ExternalLink,
   Monitor,
   PenTool,
   LucideWaves,
   Box,
-  Smile,
   ChevronDown,
-  Play,
 } from "lucide-react";
 import {
   SiTypescript,
@@ -52,7 +46,7 @@ export const Home = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [scrollY, setScrollY] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [hoveredSkill, setHoveredSkill] = useState(null);
+  const [hoveredSkill, setHoveredSkill] = useState<number | null>(null);
   const [isDark, setIsDark] = useState(false);
   const [activeProject, setActiveProject] = useState(0);
   const [skillOrbit, setSkillOrbit] = useState(0);
@@ -67,7 +61,7 @@ export const Home = () => {
     }[]
   >([]);
   const [nextSparkleId, setNextSparkleId] = useState(0);
-  const [activeExperience, setActiveExperience] = useState(0);
+  const [activeExperience, setActiveExperience] = useState<number | null>(0);
 
   useEffect(() => {
     const handleMouseMove = (e: { clientX: any; clientY: any }) => {
@@ -314,7 +308,7 @@ export const Home = () => {
   //     }));
   //   };
 
-  const createSparkle = (x, y) => {
+  const createSparkle = (x: number, y: number) => {
     const newSparkle = {
       id: nextSparkleId,
       x,
