@@ -1211,7 +1211,7 @@ export const Home = () => {
       {/* Footer */}
       <footer className={`py-8 text-center border-t ${borderColor}`}>
         <p className={isDark ? "text-gray-500" : "text-gray-600"}>
-          © 2025 Joseph Bajegbo. Crafted with React, TypeScript & Tailwind CSS
+          © 2025 Joseph Bajegbo
         </p>
       </footer>
     </div>
