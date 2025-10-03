@@ -27,6 +27,7 @@
       "utilities/*": ["./utilities/*"],
       "containers/*": ["./containers/*"],
       "providers/*": ["./providers/*"],
+      "context/*": ["./context/*"],
       "pages/*": ["./pages/*"],
     }
   },

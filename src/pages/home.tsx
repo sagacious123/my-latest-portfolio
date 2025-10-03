@@ -42,13 +42,17 @@ import SixthGearScreenshot from "../assets/sixth-gear.png";
 import TradelendaScreenshot from "../assets/tradelenda.png";
 import TradetrackaScreenshot from "../assets/tradetracka.png";
 import NtlScreenshot from "../assets/ntl.png";
+import { useTheme } from "../context/ThemeContext";
 
 export const Home = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [scrollY, setScrollY] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hoveredSkill, setHoveredSkill] = useState<number | null>(null);
-  const [isDark, setIsDark] = useState(false);
+  // const [isDark, setIsDark] = useState(
+  //   () => window.matchMedia("(prefers-color-scheme: dark)").matches
+  // );
+  const { isDark, toggleTheme } = useTheme();
   const [activeProject, setActiveProject] = useState(0);
   const [skillOrbit, setSkillOrbit] = useState(0);
   const [sparkles, setSparkles] = useState<
@@ -328,7 +332,7 @@ export const Home = () => {
   const textColor = isDark ? "text-white" : "text-gray-900";
   const cardBg = isDark ? "bg-slate-900/50" : "bg-white/50";
   const whiteBg = isDark ? "bg-slate-950/80" : "bg-white/80";
-  const borderColor = isDark ? "border-purple-500/30" : "border-purple-300/50";
+  const borderColor = isDark ? "border-purple-900" : "border-purple-200";
   const accentColor = isDark ? "text-purple-400" : "text-purple-600";
   // ${
   //           isDark ? "bg-slate-950/80" : "bg-white/80"
@@ -388,7 +392,7 @@ export const Home = () => {
           </div>
           {/* Desktop Nav */}
           <div
-            className={`flex md:flex-row flex-col md:bg-transparent md:static absolute top-1/2 left-0 right-0 gap-8 items-center md:border-0 md:py-0 py-5 rounded-b-4xl md:rounded-[unset] border border-t-0 ${borderColor} backdrop-blur-md md:opacity-100 opacity-0 ${
+            className={`flex md:flex-row flex-col md:bg-transparent md:static absolute top-[64%] left-0 right-0 gap-8 items-center md:border-0 md:py-0 py-5 rounded-b-4xl md:rounded-[unset] border border-t-0 ${borderColor} backdrop-blur-md md:opacity-100 opacity-0 ${
               isMenuOpen ? "opacity-100" : "opacity-0"
             }`}
           >
@@ -404,7 +408,7 @@ export const Home = () => {
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className={`hover:${accentColor} transition-colors relative group font-light`}
+                className={`hover:${accentColor} transition-colors relative group font-normal`}
                 onClick={() => {
                   createSparkle(mousePosition.x, mousePosition.y);
                   setIsMenuOpen(false);
@@ -434,10 +438,10 @@ export const Home = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className=" flex items-center gap-4">
+          <div className=" flex items-center gap-4 relative z-[999]">
             <button
               onClick={() => {
-                setIsDark(!isDark);
+                toggleTheme();
                 createSparkle(mousePosition.x, mousePosition.y);
               }}
               className={`p-2 rounded-full ${cardBg} border ${borderColor}`}
@@ -763,7 +767,7 @@ export const Home = () => {
                   isDark ? "text-yellow-400" : "text-yellow-600"
                 }`}
               /> */}
-              Tech Universe
+              My Toolkit
             </h2>
             <p
               className={`${
@@ -819,7 +823,7 @@ export const Home = () => {
           </div>
 
           {/* Skill Pills */}
-          <div className="flex flex-wrap gap-3 justify-center">
+          <div className="flex flex-wrap gap-3 justify-center max-w-4xl mx-auto">
             {skills.map((skill) => (
               <div
                 key={skill.name}
@@ -839,7 +843,7 @@ export const Home = () => {
       <section id="projects" className="py-20 px-6 relative">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl md:text-6xl font-medium mb-4 flex items-center justify-center gap-4">
+            <h2 className="text-3xl md:text-5xl font-medium mb-4 flex items-center justify-center gap-4">
               {/* <Rocket
                 className={`w-12 h-12 ${
                   isDark ? "text-blue-400" : "text-blue-600"
@@ -884,7 +888,7 @@ export const Home = () => {
                   />
                   <div
                     className={`absolute inset-0 ${
-                      isDark ? "bg-purple-900/60" : "bg-purple-500/40"
+                      isDark ? "bg-gray-900/60" : "bg-gray-900/40"
                     } opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center`}
                   >
                     {/* <Play className="w-16 h-16 text-white" /> */}
@@ -944,7 +948,7 @@ export const Home = () => {
       <section id="experience" className="py-20 px-6 relative">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl md:text-6xl font-medium mb-4 flex items-center justify-center gap-4">
+            <h2 className="text-3xl md:text-5xl font-medium mb-4 flex items-center justify-center gap-4">
               {/* <Briefcase
                 className={`w-12 h-12 ${
                   isDark ? "text-green-400" : "text-green-600"
@@ -961,11 +965,11 @@ export const Home = () => {
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="">
             {experiences.map((exp, expIndex) => (
               <div
                 key={expIndex}
-                className={`${cardBg} backdrop-blur border ${borderColor} rounded-2xl overflow-hidden transition-all`}
+                className={`${cardBg} backdrop-blur border ${borderColor} rounded-2xl overflow-hidden transition-all mb-4`}
               >
                 <button
                   className="w-full p-6 text-left flex justify-between items-center"
@@ -1198,15 +1202,15 @@ export const Home = () => {
       </section> */}
 
       {/* Certifications */}
-      <section className="py-20 px-6">
+      {/* <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-medium mb-4 flex items-center justify-center gap-4">
-              {/* <Award
+              <Award
                 className={`w-12 h-12 ${
                   isDark ? "text-yellow-400" : "text-yellow-600"
                 }`}
-              /> */}
+              />
               Achievement Unlocked
             </h2>
           </div>
@@ -1215,10 +1219,10 @@ export const Home = () => {
             {certifications.map((cert, index) => (
               <div
                 key={index}
-                className={`bg-gradient-to-br ${
+                className={` ${
                   isDark
                     ? "from-yellow-900/20 to-orange-900/20 border border-yellow-500/50 hover:border-yellow-500"
-                    : "from-yellow-50 to-orange-50 border border-yellow-400/50 hover:border-yellow-500"
+                    : " border border-yellow-300 hover:border-yellow-500"
                 } rounded-2xl p-6 transition-all hover:scale-102 group`}
               >
                 <div className="flex items-center gap-4">
@@ -1237,7 +1241,7 @@ export const Home = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-6">
