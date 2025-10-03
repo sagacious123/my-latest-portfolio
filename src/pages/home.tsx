@@ -44,6 +44,7 @@ import SixthGearScreenshot from "assets/sixth-gear.png";
 import TradelendaScreenshot from "assets/tradelenda.png";
 import TradetrackaScreenshot from "assets/tradetracka.png";
 import NtlScreenshot from "assets/ntl.png";
+import MyPic from "assets/me.png";
 import Resume from "assets/Joseph_Bajegbo Resume.pdf";
 import { useTheme } from "context/ThemeContext";
 
@@ -579,9 +580,9 @@ export const Home = () => {
               isDark ? "gradient-text" : "gradient-text-light"
             }`}
           >
-            Your App’s{" "}
+            Welcome to My World, Where{" "}
             <span className="relative inline-block text-[lightsalmon] ">
-              Glow-Up
+              Magic
               <span
                 className={`absolute -bottom-2 left-0 w-full h-4 bg-no-repeat bg-bottom bg-contain`}
                 style={{
@@ -591,7 +592,7 @@ export const Home = () => {
                 }}
               />
             </span>{" "}
-            Starts Here
+            Happens
             {/* <span className="inline-block hover:scale-110 transition-transform cursor-pointer">
               Joseph
             </span>{" "}
