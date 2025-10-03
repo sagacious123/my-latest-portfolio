@@ -334,6 +334,7 @@ export const Home = () => {
     : "from-slate-50 via-purple-50 to-slate-50";
   const textColor = isDark ? "text-white" : "text-gray-900";
   const cardBg = isDark ? "bg-slate-900/50" : "bg-white/50";
+  const whiteBg = isDark ? "bg-slate-900" : "bg-white";
   const borderColor = isDark ? "border-purple-500/30" : "border-purple-300/50";
   const accentColor = isDark ? "text-purple-400" : "text-purple-600";
 
@@ -354,7 +355,7 @@ export const Home = () => {
       />
 
       {/* Floating Particles */}
-      <div className="fixed inset-0 pointer-events-none">
+      {/* <div className="fixed inset-0 pointer-events-none">
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
@@ -369,7 +370,7 @@ export const Home = () => {
             }}
           />
         ))}
-      </div>
+      </div> */}
 
       {/* Navigation */}
       <nav
@@ -387,7 +388,11 @@ export const Home = () => {
           >
             JB
           </div>
-          <div className="hidden md:flex gap-8 items-center">
+          <div
+            className={`flex md:flex-row flex-col md:bg-transparent md:static absolute top-1/2 z-[-1] left-0 right-0 gap-8 items-center md:border-0 md:py-0 py-5 rounded-b-4xl md:rounded-[unset] border border-t-0 ${borderColor} ${whiteBg} md:opacity-100 opacity-0 ${
+              isMenuOpen ? "opacity-100" : "opacity-0"
+            }`}
+          >
             {[
               "Home",
               "About",
@@ -469,14 +474,14 @@ export const Home = () => {
             /> */}
           </div>
           <h1
-            className={`text-3xl md:text-6xl leading-tight font-bold mb-6 animate-fade-in max-w-2xl hover:scale-110 transition-transform cursor-pointer bg-gradient-to-r ${
+            className={`text-4xl md:text-6xl leading-tight font-bold mb-6 animate-fade-in max-w-2xl hover:scale-110 transition-transform cursor-pointer bg-gradient-to-r ${
               isDark
                 ? "from-purple-400 via-pink-400 to-purple-400"
                 : "from-purple-600 via-pink-600 to-purple-600"
             } bg-clip-text text-transparent`}
           >
             Your App’s{" "}
-            <span className="relative inline-block text-[lightsalmon]">
+            <span className="relative inline-block text-[lightsalmon] ">
               Glow-Up
               <span
                 className={`absolute -bottom-2 left-0 w-full h-4 bg-no-repeat bg-bottom bg-contain`}
@@ -503,7 +508,7 @@ export const Home = () => {
           </h1>
 
           <p
-            className={`text-xl ${
+            className={`sm:text-xl text-base ${
               isDark ? "text-gray-300" : "text-gray-700"
             } mb-12 max-w-2xl mx-auto leading-relaxed`}
           >
@@ -528,7 +533,7 @@ export const Home = () => {
                 isDark
                   ? "from-purple-600 to-pink-600"
                   : "from-purple-500 to-pink-500"
-              } text-white px-8 py-4 rounded-full hover:scale-105 transition-transform`}
+              } text-white px-8 sm:py-4 py-3 rounded-full hover:scale-105 transition-transform`}
             >
               <Mail className="w-5 h-5" />
               <span className="font-medium">Get in Touch</span>
@@ -542,7 +547,7 @@ export const Home = () => {
                 isDark
                   ? "border-purple-500 hover:bg-purple-500/20"
                   : "border-purple-600 hover:bg-purple-600/10"
-              } px-8 py-4 rounded-full transition-all`}
+              } px-8 sm:py-4 py-3 rounded-full transition-all`}
             >
               <Linkedin className="w-5 h-5" />
               <span className="font-medium">LinkedIn</span>
