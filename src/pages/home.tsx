@@ -413,7 +413,7 @@ export const Home = () => {
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className={`hover:${accentColor} transition-colors relative group text-sm font-normal`}
+                className={`hover:${accentColor} transition-colors relative group text-sm font-normal text-[#585858]`}
                 onClick={() => {
                   createSparkle(mousePosition.x, mousePosition.y);
                   setIsMenuOpen(false);
@@ -759,13 +759,13 @@ export const Home = () => {
               /> */}
               My Toolkit
             </h2>
-            <p
+            {/* <p
               className={`${
                 isDark ? "text-gray-400" : "text-gray-600"
               } text-lg`}
             >
               Hover to see the magic
-            </p>
+            </p> */}
           </div>
 
           <div className="relative h-96 flex items-center justify-center mb-16">

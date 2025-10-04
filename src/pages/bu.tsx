@@ -97,6 +97,29 @@ export const Home = () => {
 
   const parallaxOffset = scrollY * 0.5;
 
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.8 } },
+  };
+
+  const slideInUp = {
+    hidden: { y: 50, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   const skills = [
     { name: "React.js", icon: <SiReact />, color: "from-cyan-500 to-blue-500" },
     {
@@ -574,14 +597,21 @@ export const Home = () => {
                   /> */}
             </div>
             <h1
-              className={`text-4xl md:text-6xl leading-tight font-bold mb-6 animate-fade-in max-w-2xl transition-transform text-purple-400 cursor-pointer ${
+              className={`text-4xl md:text-6xl leading-tight font-bold mb-6 max-w-2xl transition-transform text-purple-400 cursor-pointer ${
                 isDark ? "gradient-text" : "gradient-text-light"
               }`}
             >
               Welcome to My World, Where{" "}
               <span className="relative inline-block text-[lightsalmon] ">
                 Magic
-                <span
+                <motion.span
+                  initial={{ width: 0 }}
+                  animate={{ width: "100%" }}
+                  transition={{
+                    duration: 1,
+                    delay: 0.5,
+                    ease: [0.25, 1, 0.5, 1],
+                  }}
                   className={`absolute -bottom-2 left-0 w-full h-4 bg-no-repeat bg-bottom bg-contain`}
                   style={{
                     backgroundImage: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M2 10 Q 50 20 98 10' stroke='${
@@ -605,7 +635,11 @@ export const Home = () => {
                   </span> */}
             </h1>
 
-            <p
+            <motion.p
+              variants={slideInUp}
+              initial="hidden"
+              animate="visible"
+              transition={{ delay: 0.3 }}
               className={`sm:text-xl text-base ${
                 isDark ? "text-gray-300" : "text-gray-700"
               } mb-12 max-w-2xl mx-auto leading-relaxed`}
@@ -613,18 +647,15 @@ export const Home = () => {
               I’m Joseph, and I believe the web should feel alive. I turn ideas
               into smooth, interactive, and delightful web apps that users love
               to click.
-              {/* Crafting beautiful, interactive web experiences for{" "}
-                  <span
-                    className={`${
-                      isDark ? "text-purple-400" : "text-purple-600"
-                    } font-semibold`}
-                  >
-                    5+ years
-                  </span>
-                  . Specializing in React, TypeScript, and performance optimization. */}
-            </p>
+            </motion.p>
 
-            <div className="flex gap-6 items-center flex-wrap">
+            <motion.div
+              variants={fadeIn}
+              initial="hidden"
+              animate="visible"
+              transition={{ delay: 0.5 }}
+              className="flex gap-6 items-center flex-wrap"
+            >
               <a
                 href="mailto:damilolaj23@gmail.com"
                 className={`group flex items-center gap-2 ${
@@ -635,7 +666,7 @@ export const Home = () => {
                 <span className="font-medium">Get in Touch</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
               </a>
-              <a
+              <motion.a
                 href="https://linkedin.com/in/bajegbo-joseph"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -644,14 +675,21 @@ export const Home = () => {
                     ? "border-purple-500 hover:bg-purple-500/20"
                     : "border-purple-600 hover:bg-purple-600/10"
                 } px-8 sm:py-4 py-3 rounded-full transition-all`}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.95 }}
               >
                 <Linkedin className="w-5 h-5" />
                 <span className="font-medium">LinkedIn</span>
-              </a>
-            </div>
+              </motion.a>
+            </motion.div>
           </div>
           {/* Right Side - Profile Image */}
-          <div className="relative flex justify-center md:justify-end">
+          <motion.div
+            className="relative flex justify-center md:justify-end"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             <div className="relative">
               {/* Animated background blob */}
               <div
@@ -694,12 +732,19 @@ export const Home = () => {
                 }}
               />
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* About Me Section */}
-      <section id="about" className="py-20 px-6 relative">
+      <motion.section
+        id="about"
+        className="py-20 px-6 relative"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-medium mb-4 flex items-center justify-center gap-4">
@@ -761,10 +806,16 @@ export const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Services Section */}
-      <section className="bg-[#0b1120] text-white py-24 px-6">
+      <motion.section
+        className="bg-[#0b1120] text-white py-24 px-6"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <div className="max-w-5xl mx-auto">
           {/* Heading */}
           <h2 className="text-3xl md:text-5xl font-medium mb-16 flex items-center justify-center gap-4">
@@ -782,23 +833,35 @@ export const Home = () => {
           {/* Services Grid */}
           <div className="grid gap-10 md:grid-cols-2">
             {services.map((service, index) => (
-              <div
+              <motion.div
                 key={index}
                 className="relative p-6 rounded-xl border border-gray-800 bg-[#111827] shadow-md"
+                variants={slideInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ delay: index * 0.1 }}
               >
                 <div className="flex items-center gap-3 mb-3">
                   {service.icon}
                   <h3 className="text-xl font-semibold">{service.title}</h3>
                 </div>
                 <p className="text-gray-400 leading-relaxed">{service.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Skills Section - Solar System Style */}
-      <section id="skills" className="min-h-screen py-20 px-6 relative">
+      <motion.section
+        id="skills"
+        className="min-h-screen py-20 px-6 relative"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-medium mb-4 flex items-center justify-center gap-4">
@@ -877,10 +940,17 @@ export const Home = () => {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-6 relative">
+      <motion.section
+        id="projects"
+        className="py-20 px-6 relative"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+      >
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-medium mb-4 flex items-center justify-center gap-4">
@@ -902,7 +972,12 @@ export const Home = () => {
 
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <a
+              <motion.a
+                variants={slideInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay: index * 0.1 }}
                 key={index}
                 href={project.link}
                 target="_blank"
@@ -978,14 +1053,21 @@ export const Home = () => {
                     <ExternalLink className="w-4 h-4" />
                   </button>
                 </div>
-              </a>
+              </motion.a>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20 px-6 relative">
+      <motion.section
+        id="experience"
+        className="py-20 px-6 relative"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-medium mb-4 flex items-center justify-center gap-4">
@@ -1085,10 +1167,16 @@ export const Home = () => {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Testimonials Section */}
       {/* <section id="testimonials" className="py-20 px-6 relative">
+        <motion.div
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-medium mb-4 flex items-center justify-center gap-4">
@@ -1146,6 +1234,7 @@ export const Home = () => {
             ))}
           </div>
         </div>
+        </motion.div>
       </section> */}
 
       {/* Projects Section - Card Carousel */}
@@ -1284,7 +1373,14 @@ export const Home = () => {
       </section> */}
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-6">
+      <motion.section
+        id="contact"
+        className="py-20 px-6"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-medium mb-8">
             Let's Build Something Amazing
@@ -1375,7 +1471,7 @@ export const Home = () => {
             </a>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Footer */}
       <footer className={`py-8 text-center border-t ${borderColor}`}>

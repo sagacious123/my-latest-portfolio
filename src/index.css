@@ -151,7 +151,7 @@ font-style: italic;
   .gradient-text-light span {
     -webkit-text-fill-color: lightsalmon;
   }
-
+/* linear-gradient(to right, #5800e6, #006de6) */
   .gradient-bg {
     background: linear-gradient(to right, #9810fa, #e60076);
   }
