@@ -409,7 +409,7 @@ export const Home = () => {
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div
-            className={`text-2xl font-bold  flex items-center gap-2 cursor-pointer hover:scale-110 transition-transform ${
+            className={`text-2xl font-bold  flex items-center gap-2 cursor-pointer transition-transform relative z-[999] ${
               isDark ? "text-purple-200" : "text-purple-900"
             }`}
           >
