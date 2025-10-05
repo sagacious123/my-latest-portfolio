@@ -57,6 +57,9 @@ export const Home = () => {
   //   () => window.matchMedia("(prefers-color-scheme: dark)").matches
   // );
   const { isDark, toggleTheme } = useTheme();
+  const [scrollClassName, setScrollClassName] = useState(
+    "w-[95%] md:px-4 md:py-3 px-4 py-2 top-4"
+  );
   const [activeProject, setActiveProject] = useState<number | null>(null);
   const [skillOrbit, setSkillOrbit] = useState(0);
   const [sparkles, setSparkles] = useState<
@@ -92,6 +95,24 @@ export const Home = () => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("scroll", handleScroll);
       clearInterval(orbitInterval);
+    };
+  }, []);
+
+  const listenScrollEvent = () => {
+    if (window.scrollY > 34) {
+      setScrollClassName(
+        "w-[56%] md:w-[80%] lg:w-[58%] py-1 px-[14px] pe-[5px] top-3"
+      );
+    } else {
+      setScrollClassName("w-[95%] md:px-4 md:py-3 px-4 py-2 top-4");
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", listenScrollEvent);
+
+    return () => {
+      window.removeEventListener("scroll", listenScrollEvent);
     };
   }, []);
 
@@ -354,7 +375,7 @@ export const Home = () => {
     >
       {/* Custom Cursor Effect */}
       <div
-        className={`fixed w-8 h-8 border-2 ${
+        className={`hidden md:block fixed w-8 h-8 border-2 ${
           isDark ? "border-purple-500" : "border-purple-600"
         } rounded-full pointer-events-none z-40 mix-blend-difference transition-transform duration-150`}
         style={{
@@ -384,9 +405,9 @@ export const Home = () => {
 
       {/* Navigation */}
       <nav
-        className={`fixed max-w-7xl w-[95%] mx-auto top-5 left-1/2 -translate-x-1/2 z-40 rounded-full bg-transparent  backdrop-blur-lg border ${borderColor}`}
+        className={`fixed max-w-7xl mx-auto left-1/2 -translate-x-1/2 z-40 rounded-full bg-transparent  backdrop-blur-lg border transition-all duration-500 ${borderColor} ${scrollClassName}`}
       >
-        <div className="max-w-7xl mx-auto md:px-4 md:py-3 px-4 py-2 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div
             className={`text-2xl font-bold  flex items-center gap-2 cursor-pointer hover:scale-110 transition-transform ${
               isDark ? "text-purple-200" : "text-purple-900"
@@ -413,7 +434,9 @@ export const Home = () => {
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className={`hover:${accentColor} transition-colors relative group text-sm font-normal text-[#585858]`}
+                className={`hover:${accentColor} transition-colors relative group text-sm font-normal ${
+                  isDark ? "text-[#d0d0d0]" : "text-[#585858]"
+                }`}
                 onClick={() => {
                   createSparkle(mousePosition.x, mousePosition.y);
                   setIsMenuOpen(false);
@@ -657,21 +680,16 @@ export const Home = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-medium mb-4 flex items-center justify-center gap-4">
-              {/* <User
-                className={`w-12 h-12 ${
-                  isDark ? "text-purple-400" : "text-purple-600"
-                }`}
-              /> */}
               About Me
             </h2>
           </div>
 
           <div
-            className={`${cardBg} backdrop-blur border ${borderColor} rounded-3xl p-8 md:p-12 ${
+            className={`${cardBg} backdrop-blur border ${borderColor} rounded-3xl p-7 md:p-12 ${
               isDark ? "hover:border-purple-500" : "hover:border-purple-400"
             } transition-all`}
           >
-            <div className="space-y-6 text-lg leading-relaxed ">
+            <div className="space-y-6 md:text-lg text-base leading-relaxed ">
               <p className={isDark ? "text-gray-300" : "text-gray-700"}>
                 Hey there! I'm Joseph, a passionate Frontend Developer with over
                 5 years of experience turning complex problems into elegant,
@@ -768,7 +786,7 @@ export const Home = () => {
             </p> */}
           </div>
 
-          <div className="relative h-96 flex items-center justify-center mb-16">
+          <div className="relative h-96 flex items-center justify-center mb-16 sm:scale-100 scale-[0.8]">
             {/* Center Sun */}
             <div
               className={`absolute w-24 h-24 rounded-full bg-gradient-to-r ${
@@ -1282,7 +1300,7 @@ export const Home = () => {
             download="Joseph Bajegbo Resume"
             className={`inline-flex items-center gap-3 ${
               isDark ? "gradient-bg" : "gradient-bg-light"
-            } text-white px-10 py-5 rounded-full hover:scale-105 transition-all shadow-2xl group font-medium text-lg`}
+            } text-white md:px-9 md:py-5 px-6 py-4 rounded-full hover:scale-105 transition-all shadow-2xl group font-medium md:text-lg text-base`}
           >
             <Download className="w-6 h-6 group-hover:animate-bounce" />
             Grab my Resume
