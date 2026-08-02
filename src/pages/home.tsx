@@ -387,21 +387,21 @@ export const Home = () => {
 
       {/* Floating Particles */}
       {/* <div className="fixed inset-0 pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className={`absolute w-2 h-2 ${
-              isDark ? "bg-purple-500/30" : "bg-purple-400/40"
-            } rounded-full animate-pulse`}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 4}s`,
-            }}
-          />
-        ))}
-      </div> */}
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className={`absolute w-2 h-2 ${
+                isDark ? "bg-purple-500/30" : "bg-purple-400/40"
+              } rounded-full animate-pulse`}
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 5}s`,
+                animationDuration: `${3 + Math.random() * 4}s`,
+              }}
+            />
+          ))}
+        </div> */}
 
       {/* Navigation */}
       <nav
@@ -451,18 +451,18 @@ export const Home = () => {
               </a>
             ))}
             {/* <button
-              onClick={() => {
-                setIsDark(!isDark);
-                createSparkle(mousePosition.x, mousePosition.y);
-              }}
-              className={`p-2 rounded-full ${cardBg} border ${borderColor} hover:scale-110 transition-transform`}
-            >
-              {isDark ? (
-                <Sun className="w-5 h-5 text-yellow-400" />
-              ) : (
-                <Moon className="w-5 h-5 text-purple-600" />
-              )}
-            </button> */}
+                onClick={() => {
+                  setIsDark(!isDark);
+                  createSparkle(mousePosition.x, mousePosition.y);
+                }}
+                className={`p-2 rounded-full ${cardBg} border ${borderColor} hover:scale-110 transition-transform`}
+              >
+                {isDark ? (
+                  <Sun className="w-5 h-5 text-yellow-400" />
+                ) : (
+                  <Moon className="w-5 h-5 text-purple-600" />
+                )}
+              </button> */}
           </div>
 
           {/* Mobile Menu Button */}
@@ -488,78 +488,78 @@ export const Home = () => {
             </button>
           </div>
           {/* <div
-            className={`flex md:flex-row flex-col md:bg-transparent md:static absolute top-1/2 z-[-1] left-0 right-0 gap-8 items-center md:border-0 md:py-0 py-5 rounded-b-4xl md:rounded-[unset] border border-t-0 ${borderColor} ${whiteBg} md:opacity-100 opacity-0 ${
-              isMenuOpen ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            {[
-              "Home",
-              "About",
-              "Skills",
-              "Projects",
-              "Experience",
-              //   "Testimonials",
-              "Contact",
-            ].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className={`${
-                  isDark ? "hover:text-purple-400" : "hover:text-purple-600"
-                } transition-colors relative group`}
-              >
-                {item}
-                <span
-                  className={`absolute -bottom-1 left-0 w-0 h-0.5 ${
-                    isDark ? "bg-purple-400" : "bg-purple-600"
-                  } group-hover:w-full transition-all duration-300`}
-                />
-              </a>
-            ))}
-            <button
-              onClick={() => setIsDark(!isDark)}
-              className={`p-2 rounded-full ${cardBg} border ${borderColor} hover:scale-110 transition-transform`}
+              className={`flex md:flex-row flex-col md:bg-transparent md:static absolute top-1/2 z-[-1] left-0 right-0 gap-8 items-center md:border-0 md:py-0 py-5 rounded-b-4xl md:rounded-[unset] border border-t-0 ${borderColor} ${whiteBg} md:opacity-100 opacity-0 ${
+                isMenuOpen ? "opacity-100" : "opacity-0"
+              }`}
             >
-              {isDark ? (
-                <Sun className="w-5 h-5 text-yellow-400" />
-              ) : (
-                <Moon className="w-5 h-5 text-purple-600" />
-              )}
-            </button>
-          </div> */}
+              {[
+                "Home",
+                "About",
+                "Skills",
+                "Projects",
+                "Experience",
+                //   "Testimonials",
+                "Contact",
+              ].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className={`${
+                    isDark ? "hover:text-purple-400" : "hover:text-purple-600"
+                  } transition-colors relative group`}
+                >
+                  {item}
+                  <span
+                    className={`absolute -bottom-1 left-0 w-0 h-0.5 ${
+                      isDark ? "bg-purple-400" : "bg-purple-600"
+                    } group-hover:w-full transition-all duration-300`}
+                  />
+                </a>
+              ))}
+              <button
+                onClick={() => setIsDark(!isDark)}
+                className={`p-2 rounded-full ${cardBg} border ${borderColor} hover:scale-110 transition-transform`}
+              >
+                {isDark ? (
+                  <Sun className="w-5 h-5 text-yellow-400" />
+                ) : (
+                  <Moon className="w-5 h-5 text-purple-600" />
+                )}
+              </button>
+            </div> */}
           {/* <button
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X /> : <Menu />}
-          </button> */}
+              className="md:hidden"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X /> : <Menu />}
+            </button> */}
         </div>
         {/* Mobile Menu */}
         {/* {isMenuOpen && (
-          <div className={`md:hidden fixed ${cardBg} border-t ${borderColor} py-4`}>
-            {[
-              "Home",
-              "About",
-              "Skills",
-              "Projects",
-              "Experience",
-              "Testimonials",
-              "Contact",
-            ].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className={`block px-6 py-3 hover:${accentColor} transition-colors`}
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  createSparkle(mousePosition.x, mousePosition.y);
-                }}
-              >
-                {item}
-              </a>
-            ))}
-          </div>
-        )} */}
+            <div className={`md:hidden fixed ${cardBg} border-t ${borderColor} py-4`}>
+              {[
+                "Home",
+                "About",
+                "Skills",
+                "Projects",
+                "Experience",
+                "Testimonials",
+                "Contact",
+              ].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className={`block px-6 py-3 hover:${accentColor} transition-colors`}
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    createSparkle(mousePosition.x, mousePosition.y);
+                  }}
+                >
+                  {item}
+                </a>
+              ))}
+            </div>
+          )} */}
       </nav>
 
       {/* Hero Section */}
@@ -568,22 +568,22 @@ export const Home = () => {
         className="min-h-[100dvh] flex items-center justify-center relative pt-20"
       >
         {/* <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            transform: `translateY(${parallaxOffset}px)`,
-            background: `radial-gradient(circle at 50% 50%, ${
-              isDark ? "rgba(168, 85, 247, 0.4)" : "rgba(168, 85, 247, 0.2)"
-            } 0%, transparent 50%)`,
-          }}
-        /> */}
+            className="absolute inset-0 opacity-20"
+            style={{
+              transform: `translateY(${parallaxOffset}px)`,
+              background: `radial-gradient(circle at 50% 50%, ${
+                isDark ? "rgba(168, 85, 247, 0.4)" : "rgba(168, 85, 247, 0.2)"
+              } 0%, transparent 50%)`,
+            }}
+          /> */}
 
         <div className="relative z-10 text-center px-6 max-w-5xl">
           {/* <div className="mb-8 inline-block">
-            <Sparkles
-              className="w-12 h-12 text-yellow-400 animate-spin"
-              style={{ animationDuration: "3s" }}
-            />
-          </div> */}
+              <Sparkles
+                className="w-12 h-12 text-yellow-400 animate-spin"
+                style={{ animationDuration: "3s" }}
+              />
+            </div> */}
 
           <h1
             className={`text-4xl md:text-6xl leading-tight font-bold mb-6 animate-fade-in max-w-2xl hover:scale-110 transition-transform text-purple-400 cursor-pointer ${
@@ -603,17 +603,17 @@ export const Home = () => {
               />
             </span>{" "}
             {/* <span className="inline-block hover:scale-110 transition-transform cursor-pointer">
-              Joseph
-            </span>{" "}
-            <span
-              className={`inline-block hover:scale-110 transition-transform cursor-pointer bg-gradient-to-r ${
-                isDark
-                  ? "from-purple-400 via-pink-400 to-purple-400"
-                  : "from-purple-600 via-pink-600 to-purple-600"
-              } bg-clip-text text-transparent`}
-            >
-              Bajegbo
-            </span> */}
+                Joseph
+              </span>{" "}
+              <span
+                className={`inline-block hover:scale-110 transition-transform cursor-pointer bg-gradient-to-r ${
+                  isDark
+                    ? "from-purple-400 via-pink-400 to-purple-400"
+                    : "from-purple-600 via-pink-600 to-purple-600"
+                } bg-clip-text text-transparent`}
+              >
+                Bajegbo
+              </span> */}
           </h1>
           <div className="text-xl md:text-2xl mb-8 flex items-center justify-center gap-4 flex-wrap gg">
             <Code2
@@ -623,10 +623,10 @@ export const Home = () => {
             />
             <span className="font-normal">Frontend Developer</span>
             {/* <Rocket
-              className={`w-8 h-8 ${
-                isDark ? "text-pink-400" : "text-pink-600"
-              }`}
-            /> */}
+                className={`w-8 h-8 ${
+                  isDark ? "text-pink-400" : "text-pink-600"
+                }`}
+              /> */}
           </div>
           <p
             className={`sm:text-xl text-base ${
@@ -637,14 +637,14 @@ export const Home = () => {
             into smooth, interactive, and delightful web apps that users love to
             click.
             {/* Crafting beautiful, interactive web experiences for{" "}
-            <span
-              className={`${
-                isDark ? "text-purple-400" : "text-purple-600"
-              } font-semibold`}
-            >
-              5+ years
-            </span>
-            . Specializing in React, TypeScript, and performance optimization. */}
+              <span
+                className={`${
+                  isDark ? "text-purple-400" : "text-purple-600"
+                } font-semibold`}
+              >
+                5+ years
+              </span>
+              . Specializing in React, TypeScript, and performance optimization. */}
           </p>
 
           <div className="flex gap-6 justify-center flex-wrap">
@@ -713,10 +713,10 @@ export const Home = () => {
               >
                 <p className="font-semibold mb-2 flex items-center gap-2">
                   {/* <Sparkles
-                    className={`w-5 h-5 ${
-                      isDark ? "text-yellow-400" : "text-yellow-600"
-                    }`}
-                  /> */}
+                      className={`w-5 h-5 ${
+                        isDark ? "text-yellow-400" : "text-yellow-600"
+                      }`}
+                    /> */}
                   Fun Fact & Philosophy
                 </p>
                 <p className={isDark ? "text-gray-300" : "text-gray-700"}>
@@ -737,15 +737,15 @@ export const Home = () => {
           {/* Heading */}
           <h2 className="text-3xl md:text-5xl font-medium mb-16 flex items-center justify-center gap-4">
             {/* <Box
-              className={`w-12 h-12 ${
-                isDark ? "text-purple-400" : "text-purple-600"
-              }`}
-            /> */}
+                className={`w-12 h-12 ${
+                  isDark ? "text-purple-400" : "text-purple-600"
+                }`}
+              /> */}
             My Services
           </h2>
           {/* <h2 className="text-3xl font-semibold mb-12 bg-gradient-to-r from-pink-500 to-blue-500 text-transparent bg-clip-text">
-            MY SERVICES
-          </h2> */}
+              MY SERVICES
+            </h2> */}
 
           {/* Services Grid */}
           <div className="grid gap-10 md:grid-cols-2">
@@ -771,19 +771,19 @@ export const Home = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-medium mb-4 flex items-center justify-center gap-4">
               {/* <Zap
-                className={`w-12 h-12 ${
-                  isDark ? "text-yellow-400" : "text-yellow-600"
-                }`}
-              /> */}
+                  className={`w-12 h-12 ${
+                    isDark ? "text-yellow-400" : "text-yellow-600"
+                  }`}
+                /> */}
               My Toolkit
             </h2>
             {/* <p
-              className={`${
-                isDark ? "text-gray-400" : "text-gray-600"
-              } text-lg`}
-            >
-              Hover to see the magic
-            </p> */}
+                className={`${
+                  isDark ? "text-gray-400" : "text-gray-600"
+                } text-lg`}
+              >
+                Hover to see the magic
+              </p> */}
           </div>
 
           <div className="relative h-96 flex items-center justify-center mb-16 sm:scale-100 scale-[0.8]">
@@ -853,10 +853,10 @@ export const Home = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-medium mb-4 flex items-center justify-center gap-4">
               {/* <Rocket
-                className={`w-12 h-12 ${
-                  isDark ? "text-blue-400" : "text-blue-600"
-                }`}
-              /> */}
+                  className={`w-12 h-12 ${
+                    isDark ? "text-blue-400" : "text-blue-600"
+                  }`}
+                /> */}
               Cool Stuff I've Built
             </h2>
             <p
@@ -958,10 +958,10 @@ export const Home = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-medium mb-4 flex items-center justify-center gap-4">
               {/* <Briefcase
-                className={`w-12 h-12 ${
-                  isDark ? "text-green-400" : "text-green-600"
-                }`}
-              /> */}
+                  className={`w-12 h-12 ${
+                    isDark ? "text-green-400" : "text-green-600"
+                  }`}
+                /> */}
               My Journey
             </h2>
             <p
@@ -1057,199 +1057,199 @@ export const Home = () => {
 
       {/* Testimonials Section */}
       {/* <section id="testimonials" className="py-20 px-6 relative">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-medium mb-4 flex items-center justify-center gap-4">
-              <MessageSquare
-                className={`w-12 h-12 ${
-                  isDark ? "text-pink-400" : "text-pink-600"
-                }`}
-              />
-              Kind Words
-            </h2>
-            <p
-              className={`${
-                isDark ? "text-slate-400" : "text-slate-600"
-              } text-lg`}
-            >
-              What awesome people say about me!
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className={`${cardBg} backdrop-blur border ${borderColor} rounded-3xl p-8 hover:scale-105 hover:-rotate-1 transition-all cursor-pointer`}
-                onClick={(e) => createSparkle(e.clientX, e.clientY)}
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-5xl md:text-6xl font-medium mb-4 flex items-center justify-center gap-4">
+                <MessageSquare
+                  className={`w-12 h-12 ${
+                    isDark ? "text-pink-400" : "text-pink-600"
+                  }`}
+                />
+                Kind Words
+              </h2>
+              <p
+                className={`${
+                  isDark ? "text-slate-400" : "text-slate-600"
+                } text-lg`}
               >
-                <p
-                  className={`${
-                    isDark ? "text-slate-300" : "text-slate-700"
-                  } mb-6 italic leading-relaxed`}
-                >
-                  "{testimonial.text}"
-                </p>
+                What awesome people say about me!
+              </p>
+            </div>
 
-                <div className="flex items-center gap-4">
-                  <div
-                    className={`w-14 h-14 rounded-full ${
-                      isDark ? "bg-purple-600" : "bg-purple-500"
-                    } flex items-center justify-center text-3xl`}
+            <div className="grid md:grid-cols-3 gap-8">
+              {testimonials.map((testimonial, index) => (
+                <div
+                  key={index}
+                  className={`${cardBg} backdrop-blur border ${borderColor} rounded-3xl p-8 hover:scale-105 hover:-rotate-1 transition-all cursor-pointer`}
+                  onClick={(e) => createSparkle(e.clientX, e.clientY)}
+                >
+                  <p
+                    className={`${
+                      isDark ? "text-slate-300" : "text-slate-700"
+                    } mb-6 italic leading-relaxed`}
                   >
-                    {testimonial.avatar}
-                  </div>
-                  <div>
-                    <p className="font-bold text-lg">{testimonial.name}</p>
-                    <p
-                      className={`text-sm ${
-                        isDark ? "text-slate-400" : "text-slate-600"
-                      }`}
+                    "{testimonial.text}"
+                  </p>
+
+                  <div className="flex items-center gap-4">
+                    <div
+                      className={`w-14 h-14 rounded-full ${
+                        isDark ? "bg-purple-600" : "bg-purple-500"
+                      } flex items-center justify-center text-3xl`}
                     >
-                      {testimonial.role}
-                    </p>
+                      {testimonial.avatar}
+                    </div>
+                    <div>
+                      <p className="font-bold text-lg">{testimonial.name}</p>
+                      <p
+                        className={`text-sm ${
+                          isDark ? "text-slate-400" : "text-slate-600"
+                        }`}
+                      >
+                        {testimonial.role}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section> */}
+        </section> */}
 
       {/* Projects Section - Card Carousel */}
       {/* <section id="projects" className="py-20 px-6 relative">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-medium mb-4 flex items-center justify-center gap-4">
-              <Rocket
-                className={`w-12 h-12 ${
-                  isDark ? "text-blue-400" : "text-blue-600"
-                }`}
-              />
-              Featured Projects
-            </h2>
-            <p
-              className={`${
-                isDark ? "text-gray-400" : "text-gray-600"
-              } text-lg`}
-            >
-              Click cards to explore
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                onClick={() => setActiveProject(index)}
-                className={`relative ${cardBg} backdrop-blur border-2 ${
-                  activeProject === index
-                    ? isDark
-                      ? "border-purple-500 scale-105"
-                      : "border-purple-600 scale-105"
-                    : borderColor
-                } rounded-2xl p-8 cursor-pointer transition-all duration-300 hover:scale-105 group overflow-hidden`}
-              >
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-5xl font-medium mb-4 flex items-center justify-center gap-4">
+                <Rocket
+                  className={`w-12 h-12 ${
+                    isDark ? "text-blue-400" : "text-blue-600"
+                  }`}
                 />
+                Featured Projects
+              </h2>
+              <p
+                className={`${
+                  isDark ? "text-gray-400" : "text-gray-600"
+                } text-lg`}
+              >
+                Click cards to explore
+              </p>
+            </div>
 
-                <div className="relative z-10">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="text-5xl">{project.icon}</div>
-                    <div
-                      className={`px-4 py-2 rounded-full text-sm font-medium ${
-                        isDark
-                          ? "bg-green-500/20 text-green-400"
-                          : "bg-green-100 text-green-700"
-                      }`}
-                    >
-                      {project.impact}
-                    </div>
-                  </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              {projects.map((project, index) => (
+                <div
+                  key={index}
+                  onClick={() => setActiveProject(index)}
+                  className={`relative ${cardBg} backdrop-blur border-2 ${
+                    activeProject === index
+                      ? isDark
+                        ? "border-purple-500 scale-105"
+                        : "border-purple-600 scale-105"
+                      : borderColor
+                  } rounded-2xl p-8 cursor-pointer transition-all duration-300 hover:scale-105 group overflow-hidden`}
+                >
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
+                  />
 
-                  <h3 className="text-2xl font-medium mb-3">{project.title}</h3>
-                  <p
-                    className={`${
-                      isDark ? "text-gray-300" : "text-gray-700"
-                    } mb-6`}
-                  >
-                    {project.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className={`px-3 py-1 rounded-full text-sm ${
+                  <div className="relative z-10">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="text-5xl">{project.icon}</div>
+                      <div
+                        className={`px-4 py-2 rounded-full text-sm font-medium ${
                           isDark
-                            ? "bg-purple-500/20 text-purple-300"
-                            : "bg-purple-100 text-purple-700"
-                        } border ${borderColor}`}
+                            ? "bg-green-500/20 text-green-400"
+                            : "bg-green-100 text-green-700"
+                        }`}
                       >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                        {project.impact}
+                      </div>
+                    </div>
 
-                  <button
-                    className={`flex items-center gap-2 ${
-                      isDark
-                        ? "text-purple-400 hover:text-purple-300"
-                        : "text-purple-600 hover:text-purple-700"
-                    } font-semibold group-hover:gap-4 transition-all`}
-                  >
-                    View Details
-                    <ExternalLink className="w-4 h-4" />
-                  </button>
+                    <h3 className="text-2xl font-medium mb-3">{project.title}</h3>
+                    <p
+                      className={`${
+                        isDark ? "text-gray-300" : "text-gray-700"
+                      } mb-6`}
+                    >
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className={`px-3 py-1 rounded-full text-sm ${
+                            isDark
+                              ? "bg-purple-500/20 text-purple-300"
+                              : "bg-purple-100 text-purple-700"
+                          } border ${borderColor}`}
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    <button
+                      className={`flex items-center gap-2 ${
+                        isDark
+                          ? "text-purple-400 hover:text-purple-300"
+                          : "text-purple-600 hover:text-purple-700"
+                      } font-semibold group-hover:gap-4 transition-all`}
+                    >
+                      View Details
+                      <ExternalLink className="w-4 h-4" />
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section> */}
+        </section> */}
 
       {/* Certifications */}
       {/* <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-medium mb-4 flex items-center justify-center gap-4">
-              <Award
-                className={`w-12 h-12 ${
-                  isDark ? "text-yellow-400" : "text-yellow-600"
-                }`}
-              />
-              Achievement Unlocked
-            </h2>
-          </div>
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-5xl font-medium mb-4 flex items-center justify-center gap-4">
+                <Award
+                  className={`w-12 h-12 ${
+                    isDark ? "text-yellow-400" : "text-yellow-600"
+                  }`}
+                />
+                Achievement Unlocked
+              </h2>
+            </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {certifications.map((cert, index) => (
-              <div
-                key={index}
-                className={` ${
-                  isDark
-                    ? "from-yellow-900/20 to-orange-900/20 border border-yellow-500/50 hover:border-yellow-500"
-                    : " border border-yellow-300 hover:border-yellow-500"
-                } rounded-2xl p-6 transition-all hover:scale-102 group`}
-              >
-                <div className="flex items-center gap-4">
-                  <div
-                    className={`w-16 h-16 bg-gradient-to-br ${
-                      isDark
-                        ? "from-yellow-400 to-orange-500"
-                        : "from-yellow-500 to-orange-600"
-                    } rounded-full flex items-center justify-center flex-shrink-0 group-hover:rotate-12 transition-transform`}
-                  >
-                    <Award className="w-8 h-8 text-white" />
+            <div className="grid md:grid-cols-2 gap-6">
+              {certifications.map((cert, index) => (
+                <div
+                  key={index}
+                  className={` ${
+                    isDark
+                      ? "from-yellow-900/20 to-orange-900/20 border border-yellow-500/50 hover:border-yellow-500"
+                      : " border border-yellow-300 hover:border-yellow-500"
+                  } rounded-2xl p-6 transition-all hover:scale-102 group`}
+                >
+                  <div className="flex items-center gap-4">
+                    <div
+                      className={`w-16 h-16 bg-gradient-to-br ${
+                        isDark
+                          ? "from-yellow-400 to-orange-500"
+                          : "from-yellow-500 to-orange-600"
+                      } rounded-full flex items-center justify-center flex-shrink-0 group-hover:rotate-12 transition-transform`}
+                    >
+                      <Award className="w-8 h-8 text-white" />
+                    </div>
+                    <p className="text-lg font-semibold">{cert}</p>
                   </div>
-                  <p className="text-lg font-semibold">{cert}</p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section> */}
+        </section> */}
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-6">
@@ -1306,20 +1306,20 @@ export const Home = () => {
             Grab my Resume
           </a>
           {/* <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              alert(
-                "Resume download functionality would be implemented with an actual PDF file URL"
-              );
-            }}
-            className={`inline-flex items-center gap-3 ${
-              isDark ? "gradient-bg" : "gradient-bg-light"
-            } text-white px-10 py-5 rounded-full hover:scale-110 transition-all shadow-2xl group font-medium text-lg`}
-          >
-            <Download className="w-6 h-6 group-hover:animate-bounce" />
-            <span>Download Resume</span>
-          </a> */}
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                alert(
+                  "Resume download functionality would be implemented with an actual PDF file URL"
+                );
+              }}
+              className={`inline-flex items-center gap-3 ${
+                isDark ? "gradient-bg" : "gradient-bg-light"
+              } text-white px-10 py-5 rounded-full hover:scale-110 transition-all shadow-2xl group font-medium text-lg`}
+            >
+              <Download className="w-6 h-6 group-hover:animate-bounce" />
+              <span>Download Resume</span>
+            </a> */}
 
           {/* Social Links */}
           <div className="flex gap-6 justify-center mt-12">

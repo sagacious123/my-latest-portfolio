@@ -11,7 +11,9 @@ export const RootNavigator = () => {
       <ScrollToTop>
         {/* <Suspense fallback={<div>Loading...</div>}> */}
         <Routes>
-          <Route index path="/" element={<Pages.Home />} />
+          <Route index path="/home1" element={<Pages.Home />} />
+          <Route index path="/home2" element={<Pages.HomeNew />} />
+          <Route index path="/" element={<Pages.HomeNew2 />} />
         </Routes>
         {/* </Suspense> */}
       </ScrollToTop>
