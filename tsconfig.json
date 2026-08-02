@@ -29,7 +29,8 @@
       "providers/*": ["./providers/*"],
       "context/*": ["./context/*"],
       "pages/*": ["./pages/*"],
-    }
+    },
+    "noImplicitAny": false
   },
   "include": ["src"],
 }
